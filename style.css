@@ -1,0 +1,239 @@
+:root {
+    --bg-color: #050505;
+    --text-color: #f0f0f0;
+    --accent-color: #00d2ff;
+    --secondary-color: #3a7bd5;
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --font-heading: 'Orbitron', sans-serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    overflow: hidden; /* Prevent scrolling for SPA feel */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Stardust Background Effect */
+#stardust-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    animation: twinkle var(--duration, 3s) infinite ease-in-out;
+}
+
+@keyframes twinkle {
+    0%, 100% { transform: scale(1); opacity: 0.3; }
+    50% { transform: scale(1.5); opacity: 1; }
+}
+
+.app-container {
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 2rem;
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.82);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    letter-spacing: 5px;
+    background: linear-gradient(90deg, #fff, var(--accent-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.logo span {
+    font-weight: 300;
+}
+
+.subtitle {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    opacity: 0.7;
+    margin-top: 5px;
+}
+
+.planet-display {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.planet-info {
+    text-align: center;
+    max-width: 600px;
+}
+
+#planet-name {
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 20px var(--planet-color, var(--accent-color));
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 1rem;
+    border-radius: 12px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-item .label {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.6;
+}
+
+.stat-item .value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+#planet-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* Horizontal Carousel */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    padding: 0 60px;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    list-style: none;
+    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    gap: 20px;
+}
+
+.planet-card {
+    min-width: 120px;
+    height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid transparent;
+}
+
+.planet-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+}
+
+.planet-card.active {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--accent-color);
+}
+
+.planet-sphere {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.5);
+}
+
+.planet-card span {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.nav-btn {
+    position: absolute;
+    background: none;
+    border: 1px solid var(--glass-border);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.nav-btn:hover {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+}
+
+.prev { left: 0; }
+.next { right: 0; }
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .app-container {
+        height: 95vh;
+        padding: 1rem;
+    }
+    #planet-name { font-size: 2.5rem; }
+    .stats-grid { grid-template-columns: 1fr; }
+}

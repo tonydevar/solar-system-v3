@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Explorer v2</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="stardust-container"></div>
+    
+    <main class="app-container">
+        <header>
+            <h1 class="logo">SOLAR<span>SYSTEM</span></h1>
+            <p class="subtitle">Explore the wonders of our cosmic neighborhood</p>
+        </header>
+
+        <section class="planet-display">
+            <div class="planet-info" id="planet-info">
+                <h2 id="planet-name">Earth</h2>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="label">Mass</span>
+                        <span class="value" id="stat-mass">5.97 x 10<sup>24</sup> kg</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Gravity</span>
+                        <span class="value" id="stat-gravity">9.8 m/s²</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Length of Day</span>
+                        <span class="value" id="stat-day">24 hours</span>
+                    </div>
+                </div>
+                <p id="planet-description">Earth is the third planet from the Sun and the only astronomical object known to harbor life.</p>
+            </div>
+
+            <div class="carousel-container">
+                <button class="nav-btn prev" id="prev-btn">&lt;</button>
+                <div class="carousel-track-container">
+                    <ul class="carousel-track" id="carousel-track">
+                        <!-- Planets injected by JS -->
+                    </ul>
+                </div>
+                <button class="nav-btn next" id="next-btn">&gt;</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
